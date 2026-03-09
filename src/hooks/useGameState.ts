@@ -87,6 +87,7 @@ export function useGameState() {
   const [draw, setDraw] = useState(false);
   const [score, setScore] = useState<Score>({ X: 0, O: 0, draws: 0 });
   const [mode, setMode] = useState<GameMode>("pvp");
+  const { playPlaceSound, playWinSound, playDrawSound } = useSoundEffects();
 
   const handleClick = useCallback((index: number) => {
     if (board[index] || gameOver) return;
