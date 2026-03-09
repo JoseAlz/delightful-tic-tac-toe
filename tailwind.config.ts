@@ -47,6 +47,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "player-x": "hsl(var(--player-x))",
+        "player-o": "hsl(var(--player-o))",
+        "cell-bg": "hsl(var(--cell-bg))",
+        "cell-hover": "hsl(var(--cell-hover))",
+        "win-glow": "hsl(var(--win-glow))",
+        "board-gap": "hsl(var(--board-gap))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
