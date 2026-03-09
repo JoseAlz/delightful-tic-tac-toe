@@ -94,6 +94,7 @@ export function useGameState() {
 
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
+    playPlaceSound(); // Sonido al colocar ficha
 
     const result = checkWinner(newBoard);
     if (result.winner) {
@@ -101,6 +102,7 @@ export function useGameState() {
       setWinnerInfo(result);
       setGameOver(true);
       setScore((s) => ({ ...s, [result.winner!]: s[result.winner!] + 1 }));
+      playWinSound(); // Sonido de victoria
       return;
     }
 
@@ -109,6 +111,7 @@ export function useGameState() {
       setDraw(true);
       setGameOver(true);
       setScore((s) => ({ ...s, draws: s.draws + 1 }));
+      playDrawSound(); // Sonido de empate
       return;
     }
 
