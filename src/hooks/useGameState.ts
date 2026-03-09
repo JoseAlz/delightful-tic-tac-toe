@@ -1,5 +1,6 @@
 // Hook principal del estado del juego Ta-Te-Ti
 import { useState, useCallback } from "react";
+import { useSoundEffects } from "./useSoundEffects";
 
 export type Player = "X" | "O" | null;
 export type Board = Player[];
