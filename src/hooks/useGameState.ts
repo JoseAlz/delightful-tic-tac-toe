@@ -125,12 +125,14 @@ export function useGameState() {
         setTimeout(() => {
           const aiBoard = [...newBoard];
           aiBoard[aiMove] = "O";
+          playPlaceSound(); // Sonido al colocar ficha de IA
           const aiResult = checkWinner(aiBoard);
           if (aiResult.winner) {
             setBoard(aiBoard);
             setWinnerInfo(aiResult);
             setGameOver(true);
             setScore((s) => ({ ...s, O: s.O + 1 }));
+            playWinSound(); // Sonido de victoria
             return;
           }
           if (isDraw(aiBoard)) {
@@ -138,6 +140,7 @@ export function useGameState() {
             setDraw(true);
             setGameOver(true);
             setScore((s) => ({ ...s, draws: s.draws + 1 }));
+            playDrawSound(); // Sonido de empate
             return;
           }
           setBoard(aiBoard);
@@ -149,7 +152,7 @@ export function useGameState() {
 
     setBoard(newBoard);
     setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
-  }, [board, currentPlayer, gameOver, mode]);
+  }, [board, currentPlayer, gameOver, mode, playPlaceSound, playWinSound, playDrawSound]);
 
   const restart = useCallback(() => {
     setBoard(Array(9).fill(null));
